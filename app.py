@@ -77,5 +77,11 @@ def predict():
         error_message = f"An error occurred: {str(e)}"
         return render_template("result.html", error=error_message)
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(
+        host="0.0.0.0",
+        port=port
+    )
